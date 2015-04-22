@@ -8,6 +8,10 @@
   },
   "author": "Ryan X. Charles <ryanxcharles@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ryanxcharles/tx-debugger.git"
+  },
   "dependencies": {
     "fullnode": "^0.8.0",
     "q": "^1.2.0",
