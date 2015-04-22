@@ -1,0 +1,16 @@
+{
+  "name": "tx-validator",
+  "version": "0.0.1",
+  "description": "Transaction Validator.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ryan X. Charles <ryanxcharles@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "fullnode": "^0.8.0",
+    "q": "^1.2.0",
+    "request-promise": "^0.4.2"
+  }
+}
