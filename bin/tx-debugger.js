@@ -41,7 +41,7 @@ var gatherInputs = tx.txins.map(function(txin, index) {
       throw new Error('Error parsing input transaction ' + index);
     }
     console.log('Gathered input ' + index + ' of id ' + txidhex);
-    txs.push(tx);
+    txs[index] = tx;
   })
   .error(function(e) {
     console.log('Could not find input transaction ' + index + '. Perhaps you should reverse your hashes?');
