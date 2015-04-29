@@ -5,7 +5,8 @@ var rp = require('request-promise');
 var Tx = require('fullnode/lib/tx');
 var BR = require('fullnode/lib/br');
 var Interp = require('fullnode/lib/interp');
-var Txbuilder = require('fullnode/lib/txbuilder');
+var Txverifier = require('fullnode/lib/txverifier');
+var Txoutmap = require('fullnode/lib/txoutmap');
 var txhex = process.argv[2];
 
 if (!txhex) {
@@ -63,17 +64,11 @@ var runScriptInterpreter = function() {
 }
 
 var checkTransaction = function() {
-  var utxoutmap = {};
+  var txoutmap = Txoutmap();
   txs.forEach(function(intx, index) {
-    var txoutnum = tx.txins[index].txoutnum;
-    var label = intx.id().toString('hex') + ':' + txoutnum;
-    var txout = txs[index].txouts[txoutnum];
-    utxoutmap[label] = {txout: txout};
+    txoutmap.addTx(intx);
   });
-  var verified = Txbuilder({
-    tx: tx,
-    utxoutmap: utxoutmap
-  }).verifytx();
+  var verified = Txverifier.verify(tx, txoutmap, Interp.SCRIPT_VERIFY_P2SH);
   console.log('Check transaction (script interpreter plus other validations): ' + (verified ? 'success' : 'failure'));
 };
 

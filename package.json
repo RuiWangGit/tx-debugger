@@ -13,7 +13,7 @@
     "url": "https://github.com/ryanxcharles/tx-debugger.git"
   },
   "dependencies": {
-    "fullnode": "^0.8.0",
+    "fullnode": "^0.9.0",
     "q": "^1.2.0",
     "request-promise": "^0.4.2"
   }
