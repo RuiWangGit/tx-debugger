@@ -1,6 +1,6 @@
 {
   "name": "tx-debugger",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Transaction Debugger.",
   "main": "index.js",
   "scripts": {
